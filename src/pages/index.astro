@@ -94,6 +94,12 @@ const profile = {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{profile.name} - {profile.title}</title>
   <meta name="description" content={`Currículum vitae de ${profile.name} - ${profile.title}`}>
+  <meta property="og:title" content={`${profile.name} - Curriculum Vitae`}>
+  <meta property="og:description" content={`${profile.title} - ${profile.location}`}>
+  <meta property="og:image" content={`https://joaquin-gonzalez-cv.vercel.app${profile.photo}`}>
+  <meta property="og:type" content="profile">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content={`https://joaquin-gonzalez-cv.vercel.app${profile.photo}`}>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -130,6 +136,7 @@ const profile = {
     /* Header */
     .header {
       display: flex;
+      flex-direction: row-reverse;
       align-items: center;
       gap: 2rem;
       margin-bottom: 3rem;
@@ -150,26 +157,35 @@ const profile = {
     }
     
     .header__photo img {
-      width: 120px;
-      height: 120px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid var(--color-border);
+      border: 4px solid var(--color-border);
     }
     
     .header__content {
       flex: 1;
     }
     
+    .header__cv-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-text-muted);
+      margin-bottom: 0.5rem;
+    }
+    
     .header__name {
-      font-size: 2rem;
+      font-size: 2.25rem;
       font-weight: 700;
       letter-spacing: -0.02em;
       margin-bottom: 0.25rem;
     }
     
     .header__title {
-      font-size: 1rem;
+      font-size: 1.125rem;
       font-weight: 500;
       color: var(--color-text-muted);
       margin-bottom: 1rem;
@@ -354,6 +370,7 @@ const profile = {
         <img src={profile.photo} alt={profile.name} />
       </div>
       <div class="header__content">
+        <div class="header__cv-label">Curriculum Vitae</div>
         <h1 class="header__name">{profile.name}</h1>
         <p class="header__title">{profile.title}</p>
         <div class="header__contact">
